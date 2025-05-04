@@ -1,1 +1,8 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  --font-main: 'Inter';
+  --font-accent: 'Press Start 2P';
+  --weight-card-text: 400;
+  --weight-card-header: 700;
+  --section-width: clamp(375px, 90vw, 700px);
+}
