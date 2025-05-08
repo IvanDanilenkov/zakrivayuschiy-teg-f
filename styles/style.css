@@ -116,19 +116,51 @@
 }
 
 .button {
+  position: relative;
   border: 2px solid var(--main-color, #000000);
+  overflow: hidden;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 var(--main-color, #000000);
+  transition: box-shadow 0.3s ease;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-color, #000000);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.button:hover::before {
+  transform: translateX(0);
 }
 
 .card__button-style {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
   gap: 6px;
   padding-block-start: 25px;
 }
 
 .card__icon-button {
-  border: none;
+  padding: 0;
+  border: 2px solid transparent;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--main-color, #000000);
+  outline: none;
+  transition: border-color 0.3s ease;
 }
 
 .card__like-button-style {
@@ -140,6 +172,10 @@
 .button__text {
   font-family: var(--font-accent, monospase);
   font-size: 14px;
+  position: relative;
+  z-index: 1;
+  color: var(--stroke-color, #ffffff);
+  mix-blend-mode: difference;
 }
 
 .container-botton-position {
@@ -162,6 +198,10 @@
 .button__floppy-style svg {
   width: 28px;
   height: 28px;
+  position: relative;
+  z-index: 1;
+  color: var(--stroke-color, #ffffff);
+  mix-blend-mode: difference;
 }
 
 .dialog__save {
@@ -234,4 +274,40 @@
 
 .filter-opacity-bright {
   filter: brightness(1.2) opacity(0.8); 
+}
+
+.heart {
+  fill: var(--contour-color, #000);
+}
+
+.main-body{
+  fill: none;
+}
+
+.core {
+  fill: none;
+}
+
+.sparks{
+  fill: var(--heart-color, red);
+  opacity: 0;
+}
+
+@media (width >= 376px) {
+  .button__floppy-style {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-inline-start: 19px;
+    inline-size: 339px;
+    block-size: 55px;
+  }
+
+  .button__floppy-style svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .dialog__save {
+    max-width: 353px;
+  }
 }

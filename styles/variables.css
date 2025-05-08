@@ -7,6 +7,8 @@
   --section-width: clamp(375px, 90vw, 700px);
   --main-color: #000000;
   --stroke-color: #FFFFFF;
+  --contour-color: #000;
+  --heart-color: red;
   --bg-image: 
     repeating-linear-gradient(
       to right,
@@ -27,24 +29,5 @@
       #e7e7e7 0%,
       #e7e7e7 0.01%,
       #1a1a1a 100%
-    )
-}
-
-@media (width >= 376px) {
-  .button__floppy-style {
-    flex-direction: row;
-    justify-content: flex-start;
-    padding-inline-start: 19px;
-    inline-size: 339px;
-    block-size: 55px;
-  }
-
-  .button__floppy-style svg {
-    width: 21px;
-    height: 21px;
-  }
-
-  .dialog__save {
-    max-width: 353px;
-  }
+    );
 }
