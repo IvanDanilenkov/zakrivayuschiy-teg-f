@@ -221,7 +221,8 @@
 }
 
 .dialog__save[open]::backdrop {
-  backdrop-filter: brightness(50%);
+  backdrop-filter: brightness(0);
+  opacity: 75%;
 }
 
 .dialog__save svg {
