@@ -34,7 +34,7 @@
   width: 100%;
   margin: 100px 0;
   border: 2px solid var(--main-color);
-  font-family: var(--font-accent, monospace);
+  font-family: var(--font-accent, fantasy);
   text-transform: uppercase;
   background-color: var(--stroke-color, #ffffff);
   min-block-size: clamp(327px, 5.333vw + 307px, 368px);
@@ -60,9 +60,8 @@
 
 .article__title {
   padding: 4px 10px 6px;
-  font-weight: var(--weight-card-header);
   font-size: 18px;
-  letter-spacing: 0.02rem;
+  font-variation-settings: "wght" var(--weight-card-header);
 }
 
 .cards__image-wrapper {
@@ -71,13 +70,14 @@
 
 .card__watermark {
   position: absolute;
-  top: 22px;
-  right: 10px;
+  top: 25px;
+  right: 25px;
   z-index: 1;
   opacity: 50%;
-  font-family: var(--font-accent, monospase);
-  letter-spacing: -1.5px;
+  font-family: var(--font-accent, fantasy);
+  letter-spacing: -1.8px;
   mix-blend-mode: hard-light;
+  paint-order: stroke fill;
 }
 
 @supports (-webkit-text-stroke: 1px var(--stroke-color, #ffffff)) {
@@ -119,12 +119,20 @@
   position: relative;
   border: 2px solid var(--main-color, #000000);
   overflow: hidden;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
-.button:focus {
+.button:focus-visible {
   box-shadow: 2px 2px 0 var(--main-color, #000000);
   outline: none;
   transition: box-shadow 0.3s ease;
+}
+
+.button:active {
+  box-shadow: none;
 }
 
 .button::before {
@@ -151,16 +159,23 @@
 }
 
 .card__icon-button {
-  border: 2px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
   padding: 0;
+  outline: 2px solid transparent;
   overflow: hidden;
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .card__icon-button:focus-visible {
-  border: 2px solid var(--main-color, #000000);
-  outline: none;
-  transition: border-color 0.3s ease;
+  outline: 2px solid var(--main-color, #000000);
+  outline-offset: -2px;
+  transition: outline-color 0.3s ease;
 }
 
 .card__like-button-style {
@@ -173,7 +188,7 @@
   position: relative;
   z-index: 1;
   color: var(--stroke-color, #ffffff);
-  font-family: var(--font-accent, monospase);
+  font-family: var(--font-accent, fantasy);
   font-size: 14px;
   mix-blend-mode: difference;
 }
@@ -221,8 +236,8 @@
 }
 
 .dialog__save[open]::backdrop {
-  backdrop-filter: brightness(0);
   opacity: 75%;
+  backdrop-filter: brightness(0);
 }
 
 .dialog__save svg {
