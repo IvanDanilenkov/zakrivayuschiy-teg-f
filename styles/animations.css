@@ -9,7 +9,12 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
-/* Стили и стостояния для иконки Like */
+/* Состояние по умолчанию */
+
+.contour {
+  fill: var(--contour-color, #000);
+  transition: 0.1s linear;
+}
 
 .heart {
   fill: var(--contour-color, #000);
@@ -17,26 +22,28 @@
 
 .core {
   fill: transparent;
-  transition: fill 0.3s ease;
+  transition: fill 0.3s linear 0.03s;
 }
+
+.main-body {
+  fill: transparent;
+  transition: fill 0.3s linear;
+}
+
+.sparks {
+  opacity: 0;
+  fill: var(--heart-color, #ff0000);
+}
+
+/* Состояние при наведении и активации */
 
 .card__icon-button:hover .core {
   fill: var(--contour-color, #000);
   transition-delay: 0s;
 }
 
-.card__icon-button:not(:hover) .core {
-  fill: transparent;
-  transition-delay: 0.03s;
-}
-
 .card__icon-button:active .core {
   fill: var(--heart-color, #ff0000);
-}
-
-.main-body {
-  fill: transparent;
-  transition: fill 0.3s ease 0.05s;
 }
 
 .card__icon-button:hover .main-body {
@@ -44,34 +51,25 @@
   transition-delay: 0.05s;
 }
 
-.card__icon-button:not(:hover) .main-body {
-  fill: transparent;
-  transition-delay: 0s;
-}
-
 .card__icon-button:active .main-body {
   fill: var(--heart-color, #ff0000);
 }
 
-.sparks {
-  opacity: 0;
-  fill: var(--heart-color, #ff0000);
-}
 /* Анимация при клике на иконку Like */
 
 .like-icon.is-liked .core {
   fill: var(--heart-color, #ff0000);
-  transition: fill 0.3s ease 0s;
+  transition: fill 0.3s linear 0s;
 }
 
 .like-icon.is-liked .main-body {
   fill: var(--heart-color, #ff0000);
-  transition: fill 0.3s ease 0.05s;
+  transition: fill 0.3s linear 0.05s;
 }
 
 .like-icon.is-liked .contour {
   fill: var(--heart-color, #ff0000);
-  transition: fill 0.3s ease 0.06s;
+  transition: fill 0.3s linear 0.06s;
 }
 
 .like-icon:not(.is-liked) .contour {
