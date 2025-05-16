@@ -66,12 +66,13 @@
 
 .cards__image-wrapper {
   position: relative;
+  outline: 2px solid var(--main-color, #000000);
 }
 
 .card__watermark {
   position: absolute;
   top: 25px;
-  right: clamp(13px, calc(13px + 1.127 * (100vw - 375px) / 100), 25px);
+  right: clamp(11px, calc(11px + 1.315 * (100vw - 375px) / 100), 25px);
   z-index: 1;
   opacity: 50%;
   font-family: var(--font-accent, fantasy);
@@ -98,15 +99,13 @@
 .cards__images {
   display: block;
   aspect-ratio: 1;
-  border-block-start: 2px solid var(--main-color, #000000);
-  border-block-end: 2px solid var(--main-color, #000000);
   width: 100%;
   object-fit: cover;
   object-position: center;
 }
 
 .article__content {
-  padding: 27px 25px 25px 25px;
+  padding: 28px 25px 25px 25px;
 }
 
 .article__text {
@@ -228,9 +227,10 @@
   align-items: center;
   gap: 30px;
   min-width: 341px;
-  padding: 30px 41px;
+  padding: 30px 40px;
   line-height: 121%;
   text-transform: uppercase;
+  border: 2px solid var(--main-color, #000000);
 }
 
 .dialog__save:not([open]) {
